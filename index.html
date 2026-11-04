@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f4ef" />
+    <meta name="description" content="Klidné uzemňovací cvičení 5–4–3–2–1 pro chvíle stresu." />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Klidný okamžik</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="Klidný okamžik, úvodní obrazovka">
+          <span class="wordmark-icon" aria-hidden="true">✳</span>
+          <span>klidný okamžik</span>
+        </a>
+        <span class="offline-note" id="offline-note" hidden>Funguje i offline</span>
+      </header>
+
+      <section class="screen welcome-screen" id="welcome-screen" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <p class="eyebrow">MALÉ CVIČENÍ, TADY A TEĎ</p>
+          <h1 id="welcome-title" tabindex="-1">Vrať se<br />do přítomnosti.</h1>
+          <p class="intro">Pomocí svých smyslů můžeš na chvíli zpomalit a všimnout si toho, co je právě kolem tebe.</p>
+          <button class="button button-primary" id="start-button" type="button">
+            Začít cvičení <span aria-hidden="true">→</span>
+          </button>
+          <p class="duration-note">5 kroků · vlastním tempem</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="sun-halo halo-one"></div>
+          <div class="sun-halo halo-two"></div>
+          <div class="sun"></div>
+          <div class="horizon horizon-back"></div>
+          <div class="horizon horizon-front"></div>
+          <span class="art-spark spark-one">✳</span>
+          <span class="art-spark spark-two">✦</span>
+          <span class="art-caption">nadechni se<br />a rozhlédni se</span>
+        </div>
+      </section>
+
+      <section class="screen exercise-screen" id="exercise-screen" aria-labelledby="step-title" hidden>
+        <div class="exercise-header">
+          <button class="text-button" id="exit-button" type="button"><span aria-hidden="true">←</span> Ukončit</button>
+          <span class="step-count" id="step-count">KROK 1 Z 5</span>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="exercise-content" aria-live="polite" aria-atomic="true">
+          <div class="breathing-orbit" id="breathing-orbit" aria-hidden="true">
+            <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
+            <div class="orbit-center"><span id="orbit-number">5</span></div>
+            <span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span>
+          </div>
+          <p class="eyebrow" id="step-kicker">ROZHLÉDNI SE</p>
+          <h1 id="step-title" tabindex="-1">Najdi 5 věcí, které vidíš.</h1>
+          <p class="step-prompt" id="step-prompt">Všímej si barev, tvarů nebo světla. Není kam spěchat.</p>
+          <p class="step-hint" id="step-hint">Nemusíš nic pojmenovávat nahlas.</p>
+        </div>
+        <div class="exercise-controls">
+          <button class="button button-quiet" id="back-button" type="button">Zpět</button>
+          <button class="button button-skip" id="skip-button" type="button">Přeskočit</button>
+          <button class="button button-primary" id="next-button" type="button">Pokračovat <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+
+      <section class="screen finish-screen" id="finish-screen" aria-labelledby="finish-title" hidden>
+        <div class="finish-art" aria-hidden="true"><span>✳</span><i></i><b></b></div>
+        <p class="eyebrow">MÁŠ HOTOVO</p>
+        <h1 id="finish-title" tabindex="-1">Díky za tuhle<br />chvíli pro sebe.</h1>
+        <p class="intro">Vezmi si s sebou tenhle okamžik a vrať se ke svému dni vlastním tempem.</p>
+        <div class="finish-controls">
+          <button class="button button-primary" id="repeat-button" type="button">Zkusit znovu <span aria-hidden="true">↻</span></button>
+          <button class="text-button home-button" id="home-button" type="button">Zpět na úvod</button>
+        </div>
+      </section>
+
+      <footer class="footer-note">Nemusíš nic dělat dokonale. Stačí si všimnout.</footer>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
