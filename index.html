@@ -25,10 +25,14 @@
           <p class="eyebrow">MALÉ CVIČENÍ, TADY A TEĎ</p>
           <h1 id="welcome-title" tabindex="-1">Vrať se<br />do přítomnosti.</h1>
           <p class="intro">Pomocí svých smyslů můžeš na chvíli zpomalit a všimnout si toho, co je právě kolem tebe.</p>
-          <button class="button button-primary" id="start-button" type="button">
-            Začít cvičení <span aria-hidden="true">→</span>
-          </button>
-          <p class="duration-note">5 kroků · vlastním tempem</p>
+          <div class="method-choices" aria-label="Vyber cvičení">
+            <button class="method-choice method-choice-primary" id="start-button" type="button">
+              <span>Uzemnění 5–4–3–2–1</span><small>5 kroků · vlastním tempem</small>
+            </button>
+            <button class="method-choice" id="start-box-button" type="button">
+              <span>Box breathing</span><small>4 kola · 1 minuta</small>
+            </button>
+          </div>
         </div>
         <div class="welcome-art" aria-hidden="true">
           <div class="sun-halo halo-one"></div>
@@ -39,6 +43,28 @@
           <span class="art-spark spark-one">✳</span>
           <span class="art-spark spark-two">✦</span>
           <span class="art-caption">nadechni se<br />a rozhlédni se</span>
+        </div>
+      </section>
+
+      <section class="screen exercise-screen box-screen" id="box-screen" aria-labelledby="box-title" hidden>
+        <div class="exercise-header">
+          <button class="text-button" id="box-exit-button" type="button"><span aria-hidden="true">←</span> Ukončit</button>
+          <span class="step-count" id="box-count">4 KOLA · 1 MINUTA</span>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="box-progress"></div></div>
+        <div class="exercise-content box-content">
+          <div class="box-visual" aria-hidden="true">
+            <canvas id="breathing-canvas"></canvas>
+            <div class="breathing-fallback" id="breathing-fallback"></div>
+          </div>
+          <p class="eyebrow" id="box-kicker">BOX BREATHING</p>
+          <h1 id="box-title" tabindex="-1">Najdi si pohodlnou polohu.</h1>
+          <p class="step-prompt" id="box-prompt">Čtyři klidné fáze, čtyři sekundy každá.</p>
+          <p class="box-countdown" id="box-countdown" hidden><span id="box-seconds">4</span> sekundy</p>
+        </div>
+        <div class="exercise-controls box-controls">
+          <button class="button button-quiet" id="box-back-button" type="button">Zpět na úvod</button>
+          <button class="button button-primary" id="box-toggle-button" type="button">Spustit cvičení <span aria-hidden="true">→</span></button>
         </div>
       </section>
 
@@ -79,6 +105,6 @@
 
       <footer class="footer-note">Nemusíš nic dělat dokonale. Stačí si všimnout.</footer>
     </main>
-    <script src="/app.js" defer></script>
+    <script src="/app.js" type="module"></script>
   </body>
 </html>
