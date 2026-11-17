@@ -1,5 +1,5 @@
-const CACHE_NAME = 'klidny-okamzik-v3';
-const APP_SHELL = ['/', '/index.html', '/styles.css', '/app.js', '/vendor/three.module.min.js', '/vendor/three.core.min.js', '/manifest.webmanifest', '/icon.svg'];
+const CACHE_NAME = 'klidny-okamzik-v4';
+const APP_SHELL = ['/', '/index.html', '/styles.css', '/app.js', '/balloon-game.mjs', '/vendor/three.module.min.js', '/vendor/three.core.min.js', '/manifest.webmanifest', '/icon.svg'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));

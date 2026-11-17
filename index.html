@@ -32,6 +32,9 @@
             <button class="method-choice" id="start-box-button" type="button">
               <span>Box breathing</span><small>4 kola · 1 minuta</small>
             </button>
+            <button class="method-choice" id="start-balloon-button" type="button">
+              <span>Balónková relaxace</span><small>8 balónků · vlastním tempem</small>
+            </button>
           </div>
         </div>
         <div class="welcome-art" aria-hidden="true">
@@ -65,6 +68,41 @@
         <div class="exercise-controls box-controls">
           <button class="button button-quiet" id="box-back-button" type="button">Zpět na úvod</button>
           <button class="button button-primary" id="box-toggle-button" type="button">Spustit cvičení <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+
+      <section class="screen exercise-screen balloon-screen" id="balloon-screen" aria-labelledby="balloon-title" hidden>
+        <div class="exercise-header">
+          <button class="text-button" id="balloon-exit-button" type="button"><span aria-hidden="true">←</span> Zpět na úvod</button>
+          <span class="step-count" id="balloon-count">8 BALÓNKŮ</span>
+        </div>
+        <div class="exercise-content balloon-content">
+          <div class="balloon-field no-webgl" id="balloon-field">
+            <canvas id="balloon-canvas" aria-hidden="true"></canvas>
+            <div class="balloon-targets" id="balloon-targets" role="group" aria-label="Balónky k prasknutí">
+              <button class="balloon-target" data-balloon-index="0" type="button" aria-label="Balónek 1, prasknout"><span class="balloon-burst" aria-hidden="true"></span></button>
+              <button class="balloon-target" data-balloon-index="1" type="button" aria-label="Balónek 2, prasknout"><span class="balloon-burst" aria-hidden="true"></span></button>
+              <button class="balloon-target" data-balloon-index="2" type="button" aria-label="Balónek 3, prasknout"><span class="balloon-burst" aria-hidden="true"></span></button>
+              <button class="balloon-target" data-balloon-index="3" type="button" aria-label="Balónek 4, prasknout"><span class="balloon-burst" aria-hidden="true"></span></button>
+              <button class="balloon-target" data-balloon-index="4" type="button" aria-label="Balónek 5, prasknout"><span class="balloon-burst" aria-hidden="true"></span></button>
+              <button class="balloon-target" data-balloon-index="5" type="button" aria-label="Balónek 6, prasknout"><span class="balloon-burst" aria-hidden="true"></span></button>
+              <button class="balloon-target" data-balloon-index="6" type="button" aria-label="Balónek 7, prasknout"><span class="balloon-burst" aria-hidden="true"></span></button>
+              <button class="balloon-target" data-balloon-index="7" type="button" aria-label="Balónek 8, prasknout"><span class="balloon-burst" aria-hidden="true"></span></button>
+            </div>
+          </div>
+          <p class="eyebrow balloon-kicker" id="balloon-kicker">CHVÍLE PRO SEBE</p>
+          <h1 id="balloon-title" tabindex="-1">Praskni balónky.</h1>
+          <p class="step-prompt" id="balloon-prompt">Jemně klepni nebo klikni na každý balónek. Není kam spěchat.</p>
+          <p class="balloon-status" id="balloon-status" aria-live="polite">Zbývá 8 balónků.</p>
+          <div class="balloon-complete" id="balloon-complete" hidden>
+            <p class="eyebrow">MÁŠ HOTOVO</p>
+            <h2>Hotovo.</h2>
+            <p>Vezmi si s sebou tenhle klidný okamžik.</p>
+            <div class="finish-controls">
+              <button class="button button-primary" id="balloon-repeat-button" type="button">Zahrát znovu <span aria-hidden="true">↻</span></button>
+              <button class="text-button home-button" id="balloon-home-button" type="button">Zpět na úvod</button>
+            </div>
+          </div>
         </div>
       </section>
 

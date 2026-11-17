@@ -106,6 +106,45 @@ h1 { margin: 0; color: var(--ink); font-family: var(--serif); font-size: clamp(4
 .box-controls { grid-template-columns: 1fr 1fr; }
 .box-controls .button-primary { grid-column: 2; }
 
+.balloon-content { position: relative; }
+.balloon-field { position: relative; width: min(100%, 720px); height: min(44vh, 390px); min-height: 250px; margin: 0 0 12px; overflow: hidden; border-radius: 20px; background: radial-gradient(ellipse at 50% 48%, #eef1e8, #e4ebe2 70%, #dce6dd); }
+#balloon-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.balloon-targets { position: absolute; inset: 0; }
+.balloon-target { position: absolute; width: 20%; height: 39%; min-width: 56px; min-height: 76px; padding: 0; transform: translate(-50%, -50%); border: 0; border-radius: 50%; background: transparent; touch-action: manipulation; }
+.balloon-target:nth-child(1) { left: 14%; top: 20%; }
+.balloon-target:nth-child(2) { left: 36%; top: 50%; }
+.balloon-target:nth-child(3) { left: 59%; top: 24%; }
+.balloon-target:nth-child(4) { left: 82%; top: 48%; }
+.balloon-target:nth-child(5) { left: 22%; top: 66%; }
+.balloon-target:nth-child(6) { left: 47%; top: 68%; }
+.balloon-target:nth-child(7) { left: 72%; top: 15%; }
+.balloon-target:nth-child(8) { left: 87%; top: 72%; }
+.balloon-target:focus-visible { outline: 3px solid #477565; outline-offset: 3px; }
+.balloon-target::before { position: absolute; top: 1%; left: 50%; width: 60%; height: 76%; content: ''; transform: translateX(-50%); border-radius: 50% 50% 46% 46%; clip-path: polygon(0 0, 100% 0, 100% 83%, 55% 91%, 50% 100%, 45% 91%, 0 83%); background: radial-gradient(ellipse at 32% 26%, #f6f4de 0, var(--balloon-color) 38%, var(--balloon-shade) 100%); box-shadow: inset -7px -9px 16px #28493a24, inset 5px 5px 10px #ffffff80, 0 8px 17px #476c5b20; transition: transform .24s ease, opacity .24s ease; }
+.balloon-target::after { position: absolute; bottom: 1%; left: 50%; width: 1px; height: 29%; content: ''; transform: translateX(-50%); background: #77918280; }
+.balloon-target:nth-child(1) { --balloon-color: #b7d1b5; --balloon-shade: #7fa68f; }
+.balloon-target:nth-child(2) { --balloon-color: #dfc7a2; --balloon-shade: #b69670; }
+.balloon-target:nth-child(3) { --balloon-color: #c3d1db; --balloon-shade: #88a6b0; }
+.balloon-target:nth-child(4) { --balloon-color: #d7c6d9; --balloon-shade: #a590b0; }
+.balloon-target:nth-child(5) { --balloon-color: #e4c4b8; --balloon-shade: #bd9083; }
+.balloon-target:nth-child(6) { --balloon-color: #c5d5b9; --balloon-shade: #91aa7f; }
+.balloon-target:nth-child(7) { --balloon-color: #ead9a9; --balloon-shade: #c4a96e; }
+.balloon-target:nth-child(8) { --balloon-color: #b8d2ce; --balloon-shade: #81a9a4; }
+.balloon-field.has-webgl .balloon-target::before, .balloon-field.has-webgl .balloon-target::after { opacity: 0; }
+.balloon-burst { position: absolute; top: 18%; left: 50%; display: none; width: 12px; aspect-ratio: 1; transform: translate(-50%, -50%) scale(.3); border: 2px solid #d5bd8c; border-radius: 50%; box-shadow: 0 -18px #d5bd8c, 0 18px #d5bd8c, 18px 0 #92aa98, -18px 0 #92aa98, 13px 13px #c5b1ca, -13px -13px #c5b1ca; }
+.balloon-target.is-popping::before { transform: translateX(-50%) scale(.15); opacity: 0; }
+.balloon-target.is-popping .balloon-burst { display: block; animation: balloon-pop .34s ease-out both; }
+.balloon-target.is-popped::before, .balloon-target.is-popped::after { opacity: 0; }
+.balloon-kicker { margin-bottom: 10px; }
+.balloon-content h1 { font-size: clamp(32px, 5vw, 48px); }
+.balloon-content .step-prompt { margin-top: 9px; }
+.balloon-status { min-height: 18px; margin: 8px 0 0; color: #829087; font-size: 11px; }
+.balloon-complete { max-width: 440px; padding: 22px 10px; text-align: center; }
+.balloon-complete .eyebrow { margin-bottom: 10px; }
+.balloon-complete h2 { margin: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 52px); font-weight: 600; letter-spacing: -.05em; }
+.balloon-complete > p:not(.eyebrow) { margin: 12px 0 20px; color: #748078; font-size: 14px; line-height: 1.7; }
+@keyframes balloon-pop { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.3); } 35% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4); } }
+
 .finish-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 25px 0 40px; text-align: center; }
 .finish-art { position: relative; display: grid; width: 116px; aspect-ratio: 1; margin-bottom: 30px; place-items: center; border: 1px solid #d4ded2; border-radius: 50%; color: #789886; font-size: 38px; }
 .finish-art i, .finish-art b { position: absolute; width: 8px; aspect-ratio: 1; border-radius: 50%; background: #d8bd91; }
@@ -129,6 +168,8 @@ h1 { margin: 0; color: var(--ink); font-family: var(--serif); font-size: clamp(4
   .intro { margin: 17px 0 22px; font-size: 14px; }
   .welcome-art { align-self: center; width: min(79%, 285px); aspect-ratio: 1.2 / 1; }
   .box-visual { width: min(66vw, 245px); }
+  .balloon-field { height: min(38vh, 310px); min-height: 220px; }
+  .balloon-target { width: 23%; min-width: 50px; min-height: 66px; }
   .halo-one { width: 58%; }
   .halo-two { width: 46%; }
   .sun { width: 30%; }
